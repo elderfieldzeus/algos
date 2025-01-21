@@ -1,0 +1,8 @@
+*
+!/**/
+!*.*
+.vscode
+tempCodeRunnerFile.c
+*.out
+*.exe
+.DS_Store
