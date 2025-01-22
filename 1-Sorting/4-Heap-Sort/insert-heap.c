@@ -22,15 +22,16 @@ int main() {
 }
 
 void heapSort(int arr[], int size) {
-    int last_index = size - 1;
-    int lowest_parent = (last_index - 1) / 2;
+    if(size > 0) {
+        int heap[size];
+        int heap_size = 0;
 
-    for(int i = lowest_parent; i >= 0; i--) {
-        maxHeapify(arr, size, i);
-    }
+        for(int i = 0; i < size; i++) {
+            insertMax(heap, &heap_size, size, arr[i]);
+        }
 
-    while(last_index > 0) {
-        swap(arr, arr + last_index);
-        maxHeapify(arr, last_index--, 0);
+        for(int i = size - 1; i >= 0; i--) {
+            arr[i] = deleteMax(heap, &heap_size);
+        }
     }
 }
