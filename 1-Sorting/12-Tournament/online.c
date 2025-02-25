@@ -45,9 +45,8 @@ void tournamentSort(int arr[], int size, int tree_size) {
     int elem_start = tree_size - num_elems;
 
     // Place elements at the leaves of the heap
-    while (arr_index < num_elems) {
-        tree[elem_start + arr_index] = arr[arr_index];
-        arr_index++;
+    for (int i = arr_index; i < num_elems; i++) {
+        tree[elem_start + i] = (i < size) ? arr[arr_index++] : INF;
     }
 
     // Initialize tree, start from lowest-level parent and work upwards
@@ -56,6 +55,7 @@ void tournamentSort(int arr[], int size, int tree_size) {
 
     // This is the start of tournament sort
     for (int i = 0; i < size; i++) {
+
         // Delete-first, like a minheap
         int ndx = tree[0];
         push(&buffer, tree[ndx]);
@@ -68,7 +68,7 @@ void tournamentSort(int arr[], int size, int tree_size) {
         
         // This is like heapify, but iterative
         // View '/12-Tournament/headers/tournament.h'
-        resetTree(tree, elem_start, parent);
+        resetTree(tree, tree_size, elem_start, parent);
 
         if (tree[tree[0]] < top(buffer)) {
             // View '/12-Tournament/headers/tournament.h'

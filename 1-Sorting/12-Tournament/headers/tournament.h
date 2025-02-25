@@ -7,7 +7,6 @@
 
 void initTree(int tree[], int tree_size, int elem_start) {
     for (int i = (tree_size - 2) / 2; i >= 0; i--) {
-
         // Initiate left_trav, this will store the index of the current min of that subtree
         int left_trav = i * 2 + 1;
 
@@ -25,11 +24,11 @@ void initTree(int tree[], int tree_size, int elem_start) {
         }
 
         // Compare elements and store the index of the minimum element
-        tree[i] = (tree[right_trav] < tree[left_trav]) ? right_trav : left_trav;
+        tree[i] = (right_trav >= tree_size || tree[left_trav] < tree[right_trav]) ? left_trav : right_trav;
     }
 }
 
-void resetTree(int tree[], int elem_start, int parent) {
+void resetTree(int tree[], int tree_size, int elem_start, int parent) {
     while (parent > 0) {
             
         // Traverse first to get the element's current parent
@@ -48,7 +47,7 @@ void resetTree(int tree[], int elem_start, int parent) {
         }
 
         // Also same as earlier, let the parent now point to the index of the lesser element.
-        tree[parent] = (tree[right_trav] < tree[left_trav]) ? right_trav : left_trav;
+        tree[parent] = (right_trav >= tree_size || tree[left_trav] < tree[right_trav]) ? left_trav : right_trav;
     }
 }
 

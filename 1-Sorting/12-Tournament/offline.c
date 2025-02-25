@@ -55,6 +55,6 @@ void tournamentSort(int arr[], int size) {
         
         // This is like heapify, but iterative
         // View '/12-Tournament/headers/tournament.h'
-        resetTree(tree, elem_start, parent);
+        resetTree(tree, tree_size, elem_start, parent);
     }
 }
