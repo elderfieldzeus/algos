@@ -81,7 +81,7 @@ void tournamentSort(int arr[], int size, int tree_size) {
     // View '/12-Tournament/headers/stacklist.h'
     output = mergeDescending(output, buffer);
 
-    // Since I used a descending stack, we will place elements back to the array starting from the end
+    // Since I used a descending stack, we will be placing elements back to the array starting from the end
     while (output != NULL) {
         arr[--arr_index] = top(output);
         pop(&output);
