@@ -16,7 +16,7 @@ int main() {
 
     tournamentSort(arr, size);
 
-    printf("Insertion-sorted array: ");
+    printf("Tournament-sorted array: ");
     print(arr, size);
 
     return 0;
