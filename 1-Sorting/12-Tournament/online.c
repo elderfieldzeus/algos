@@ -23,7 +23,7 @@ int main() {
     return 0;
 }
 
-// NOTE: U can use K-merge, but you would need an array of linked lists 
+// NOTE: U can use K-merge, but you would need a collection/array/linked list of linked lists 
 void tournamentSort(int arr[], int size, int tree_size) {
     // LOL
     if (tree_size <= 0) return;
