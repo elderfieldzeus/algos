@@ -1,35 +1,24 @@
 #include "../../headers/general.h"
 #include "../../headers/arrays.h"
+#include "../../headers/stacklist.h"
 #include "./headers/tournament.h"
-#include "./headers/stacklist.h"
+#include "../../0-Test/sort-test.h"
 
-void tournamentSort(int arr[], int size, int tree_size);
+
+void tournamentSort(int arr[], int size);
 
 int main() {
-    cls();
-
-    int arr[] = {4, 2, 5, 1, 3};
-
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    print(arr, size);
-
-    tournamentSort(arr, size, 7);
-
-    printf("Tournament-sorted array: ");
-    print(arr, size);
-
+    test_sort_w_size(tournamentSort);
     return 0;
 }
 
 // NOTE: U can use K-merge, but you would need a collection/array/linked list of linked lists 
-void tournamentSort(int arr[], int size, int tree_size) {
+void tournamentSort(int arr[], int size) {
     // LOL
-    if (tree_size <= 0) return;
+    if (TREE_SIZE <= 0) return;
 
     // Initialize tree
-    int tree[tree_size];
+    int tree[TREE_SIZE];
 
     // Initialize output and buffer linkedlists
     StackList output = NULL;
@@ -39,10 +28,10 @@ void tournamentSort(int arr[], int size, int tree_size) {
     int arr_index = 0;
 
     // Number of elements that can fit in the heap at once
-    int num_elems = (tree_size + 1) / 2;
+    int num_elems = (TREE_SIZE + 1) / 2;
 
     // Keep track of when indices start to point to actual elements
-    int elem_start = tree_size - num_elems;
+    int elem_start = TREE_SIZE - num_elems;
 
     // Place elements at the leaves of the heap
     for (int i = arr_index; i < num_elems; i++) {
@@ -51,7 +40,7 @@ void tournamentSort(int arr[], int size, int tree_size) {
 
     // Initialize tree, start from lowest-level parent and work upwards
     // View '/12-Tournament/headers/tournament.h'
-    initTree(tree, tree_size, elem_start);
+    initTree(tree, TREE_SIZE, elem_start);
 
     // This is the start of tournament sort
     for (int i = 0; i < size; i++) {
@@ -68,7 +57,7 @@ void tournamentSort(int arr[], int size, int tree_size) {
         
         // This is like heapify, but iterative
         // View '/12-Tournament/headers/tournament.h'
-        resetTree(tree, tree_size, elem_start, parent);
+        resetTree(tree, TREE_SIZE, elem_start, parent);
 
         if (tree[tree[0]] < top(buffer)) {
             // View '/12-Tournament/headers/tournament.h'

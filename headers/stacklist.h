@@ -1,4 +1,4 @@
-#include "../../../headers/general.h"
+#include "./general.h"
 
 #ifndef STACKLIST_H
 #define STACKLIST_H
@@ -8,6 +8,7 @@ typedef struct node {
     struct node *next;
 } *StackList;
 
+/* Stack Functions  */
 void push(StackList *S, int data) {
     StackList temp = (StackList) malloc(sizeof(struct node));
 
@@ -29,6 +30,49 @@ void pop(StackList *S) {
 
 int top(StackList S) {
     return (S == NULL) ? -1 : S->data;
+}
+
+
+/* List Functions */
+
+void insertSortedAscNoMalloc(StackList *L, int data, StackList node) {
+    if (node != NULL) {
+        StackList *trav;
+
+        for (trav = L; *trav != NULL && data > (*trav)->data; trav = &(*trav)->next) {}
+
+        node->data = data;
+        node->next = *trav;
+        *trav = node;
+    }
+}
+
+void insertSortedAsc(StackList *L, int data) {
+    StackList temp = (StackList)malloc(sizeof(struct node));
+
+    if (temp != NULL) {
+        StackList *trav;
+
+        for (trav = L; *trav != NULL && data > (*trav)->data; trav = &(*trav)->next) {}
+
+        temp->data = data;
+        temp->next = *trav;
+        *trav = temp;
+    }
+}
+
+void insertSortedDesc(StackList *L, int data) {
+    StackList temp = (StackList)malloc(sizeof(struct node));
+
+    if (temp != NULL) {
+        StackList *trav;
+
+        for (trav = L; *trav != NULL && data < (*trav)->data; trav = &(*trav)->next) {}
+
+        temp->data = data;
+        temp->next = *trav;
+        *trav = temp;
+    }
 }
 
 // Merge lists to A

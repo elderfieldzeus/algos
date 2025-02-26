@@ -1,22 +1,11 @@
 #include "../../headers/general.h"
 #include "../../headers/arrays.h"
+#include "../../0-Test/sort-test.h"
 
 void quickSort(int arr[], int low, int high);
 
 int main() {
-    cls();
-
-    int arr[] = {4, 2, 5, 1, 3};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    print(arr, size);
-
-    quickSort(arr, 0, size - 1);
-
-    printf("Quick-sorted array: ");
-    print(arr, size);
-
+    test_sort_w_low_high(quickSort);
     return 0;
 }
 

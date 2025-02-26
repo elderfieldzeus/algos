@@ -1,23 +1,12 @@
 #include "../../headers/general.h"
 #include "../../headers/arrays.h"
 #include "./headers/heap.h"
+#include "../../0-Test/sort-test.h"
 
 void heapSort(int arr[], int size);
 
 int main() {
-    cls();
-
-    int arr[] = {4, 2, 5, 1, 3};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    print(arr, size);
-
-    heapSort(arr, size);
-
-    printf("Heap-sorted array: ");
-    print(arr, size);
-
+    test_sort_w_size(heapSort);
     return 0;
 }
 

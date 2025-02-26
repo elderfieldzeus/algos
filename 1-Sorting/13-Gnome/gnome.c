@@ -1,22 +1,11 @@
 #include "../../headers/general.h"
 #include "../../headers/arrays.h"
+#include "../../0-Test/sort-test.h"
 
 void gnomeSort(int arr[], int size);
 
 int main() {
-    cls();
-
-    int arr[] = {4, 2, 5, 1, 3};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    print(arr, size);
-
-    gnomeSort(arr, size);
-
-    printf("Gnome-sorted array: ");
-    print(arr, size);
-
+    test_sort_w_size(gnomeSort);
     return 0;
 }
 

@@ -2,7 +2,8 @@
 
 #ifndef TOURNAMENT_H
 #define TOURNAMENT_H
-#define INF 99999
+#define INF INT_MAX
+#define TREE_SIZE 7
 
 
 void initTree(int tree[], int tree_size, int elem_start) {

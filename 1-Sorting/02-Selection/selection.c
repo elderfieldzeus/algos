@@ -1,22 +1,11 @@
+#include "../../0-Test/sort-test.h"
 #include "../../headers/general.h"
 #include "../../headers/arrays.h"
 
 void selectionSort(int arr[], int size);
 
 int main() {
-    cls();
-
-    int arr[] = {4, 2, 5, 1, 3};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    print(arr, size);
-
-    selectionSort(arr, size);
-
-    printf("Selection-sorted array: ");
-    print(arr, size);
-
+    test_sort_w_size(selectionSort);
     return 0;
 }
 

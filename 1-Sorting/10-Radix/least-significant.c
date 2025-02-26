@@ -2,6 +2,7 @@
 #include "../../headers/general.h"
 #include "../../headers/arrays.h"
 #include "../../headers/stacklist.h"
+#include "../../0-Test/sort-test.h"
 #define BASE 10 // base 10
 
 void radixSort(int arr[], int size);

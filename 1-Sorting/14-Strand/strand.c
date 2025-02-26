@@ -1,23 +1,12 @@
 #include "../../headers/general.h"
 #include "../../headers/arrays.h"
-#include "./headers/stacklist.h"
+#include "../../headers/stacklist.h"
+#include "../../0-Test/sort-test.h"
 
 void strandSort(int arr[], int size);
 
 int main() {
-    cls();
-
-    int arr[] = {4, 2, 5, 1, 3};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    print(arr, size);
-
-    strandSort(arr, size);
-
-    printf("Strand-sorted array: ");
-    print(arr, size);
-
+    test_sort_w_size(strandSort);
     return 0;
 }
 

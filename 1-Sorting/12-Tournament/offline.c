@@ -1,28 +1,19 @@
 #include "../../headers/general.h"
 #include "../../headers/arrays.h"
 #include "./headers/tournament.h"
+#include "../../0-Test/sort-test.h"
 
 void tournamentSort(int arr[], int size);
 
 int main() {
-    cls();
-
-    int arr[] = {4, 2, 5, 1, 3};
-
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    print(arr, size);
-
-    tournamentSort(arr, size);
-
-    printf("Tournament-sorted array: ");
-    print(arr, size);
-
+    test_sort_w_size(tournamentSort);
     return 0;
 }
 
 void tournamentSort(int arr[], int size) {
+    // Doesn't work if one element wahah!
+    if (size <= 1) return;
+
     // Set tree size
     int tree_size = size * 2 - 1;
 
