@@ -43,15 +43,17 @@ void tournamentSort(int arr[], int size) {
 
     // This is the start of tournament sort
     for (int i = 0; i < size; i++) {
+        // Keep track of index of the minimum element
+        int ndx = tree[0];
 
         // Delete-first, like a minheap
-        arr[i] = tree[tree[0]];
+        arr[i] = tree[ndx];
 
         // This is considered "deleting" the element, replace it with a really BIG number
-        tree[tree[0]] = INF;
+        tree[ndx] = INF;
 
         // Initialize parent-traversal
-        int parent = tree[0];
+        int parent = ndx;
         
         // This is like heapify, but iterative
         // View '/12-Tournament/headers/tournament.h'
