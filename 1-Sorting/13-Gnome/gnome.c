@@ -24,7 +24,7 @@ void gnomeSort(int arr[], int size) {
     int trav = 0;
 
     while(trav < size) {
-        if (trav <= 0 || arr[trav - 1] <= arr[trav]) {
+        if (trav == 0 || arr[trav - 1] <= arr[trav]) {
             trav++;
         }
         else {
