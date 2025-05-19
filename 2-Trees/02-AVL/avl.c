@@ -18,6 +18,8 @@ int getBalanceFactor(AVL x);
 void rotateLeft(AVL *x);
 void rotateRight(AVL *x);
 
+void balance(AVL *root);
+
 void insert(AVL* root, int data);
 void delete(AVL* root, int data);
 bool search(AVL root, int data);
