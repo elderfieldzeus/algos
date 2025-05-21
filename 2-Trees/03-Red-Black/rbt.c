@@ -139,7 +139,7 @@ void insert(RBT *root, int data) {
                     nodeParent = node;
                 }
 
-                // Case 4: if (!nodeIsLeft) Uncle is black line
+                // Case 4: if (nodeIsLeft) Uncle is black line
                 rotateRight(nodeParent->parent);
 
                 nodeParent = nodeParent->right;
