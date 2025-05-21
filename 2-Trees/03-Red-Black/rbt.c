@@ -132,21 +132,27 @@ void insert(RBT *root, int data) {
             nodeParent->parent->color = RED;
 
             if (parentIsLeft) {
+
+                // Case 3: Uncle is black triangle
                 if (!nodeIsLeft) {
-                    
                     rotateLeft(nodeParent);
                     nodeParent = node;
                 }
 
+                // Case 4: if (!nodeIsLeft) Uncle is black line
                 rotateRight(nodeParent->parent);
 
                 nodeParent = nodeParent->right;
             }
             else {
+
+                // Case 3: Uncle is black triangle
                 if (nodeIsLeft) {
                     rotateRight(nodeParent);
                     nodeParent = node;
                 }
+
+                // Case 4: if (!nodeIsLeft) Uncle is black line
                 rotateLeft(nodeParent->parent);
                 
                 nodeParent = nodeParent->left;
@@ -157,6 +163,7 @@ void insert(RBT *root, int data) {
         nodeParent = nodeParent->parent;
     }
 
+    // In the case of a new root, we update the root pointer
     if (nodeParent != NULL && nodeParent->parent == NULL) {
         *root = nodeParent;
     }
