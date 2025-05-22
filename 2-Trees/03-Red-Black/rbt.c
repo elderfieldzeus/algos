@@ -233,6 +233,7 @@ void delete(RBT *root, int data) {
 
     // Case 3: Both Children are not NULL
     else {
+        RBT temp;
         replacement = nodeToBeDeleted->right;
 
         while (replacement->left != NULL) {
@@ -240,6 +241,7 @@ void delete(RBT *root, int data) {
         }
 
         originalColor = replacement->color;
+        temp = replacement->right;
 
         transplant(root, replacement, replacement->right);
         
@@ -250,6 +252,8 @@ void delete(RBT *root, int data) {
         replacement->left = nodeToBeDeleted->left;
         replacement->left->parent = replacement;
         replacement->color = nodeToBeDeleted->color;
+
+        replacement = temp;
     }
 
 
